@@ -146,10 +146,7 @@
       async function onSubmit(event) {
         event.preventDefault()
         try {
-          if (
-            document.getElementById('prompt').value ==
-            'Para qualquer pergunta feita, responda da forma mais resumida o possível, de preferencia com apenas duas palavras, sempre resuma da forma mais direta o possivel'
-          ) {
+          if (document.getElementById('prompt').value == '') {
             document.getElementById('prompt').style.border = '1px solid red'
             document.getElementById('prompt').focus()
             return
@@ -157,7 +154,7 @@
           document.getElementById('prompt').style.border = 'none'
           document.getElementById('result').innerText = 'carregando...'
           const response = await fetch(
-            '/api?prompt=Sugira um slogan para ' +
+            '/api?prompt=Para qualquer pergunta feita, responda da forma mais resumida o possível, de preferencia com apenas duas palavras, sempre resuma da forma mais direta o possivel para ' +
               document.getElementById('prompt').value,
             {
               method: 'GET',
